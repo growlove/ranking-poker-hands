@@ -61,8 +61,8 @@ class CardSet
     ranks_with_count(2).count == 1
   end
 
-  def self.from(cards_string)
-    cards = cards_string.split.map do |card_string|
+  def self.from(cards_array)
+    cards = cards_array.map do |card_string|
       Card.from(card_string)
     end
     new(cards)

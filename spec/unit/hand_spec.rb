@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe Hand do
-  let(:cards) { "2H 3D 5C 6S 9S" }
+  let(:cards) { %w(2H 3D 5C 6S 9S) }
   let(:set) { CardSet.from(cards) }
   subject(:hand) { HandFactory.new(cards).build }
 

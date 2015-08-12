@@ -1,6 +1,6 @@
 class HandFactory
-  def initialize(cards_string)
-    @set = CardSet.from(cards_string)
+  def initialize(cards_array)
+    @set = CardSet.from(cards_array)
   end
 
   def build
