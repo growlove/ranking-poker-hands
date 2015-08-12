@@ -46,4 +46,46 @@ describe CardSet do
       expect(set.ranks_with_count(3)).to eq []
     end
   end
+
+  describe '#royal?' do
+    let(:cards) { "TH JH QH KH AH" }
+    it "returns true if card set is royal" do
+      expect(set.royal?).to be true
+    end
+  end
+
+  describe '#flush?' do
+    let(:cards) { "2H 4H 6H 8H TH" }
+    it "returns true if card set is a flush" do
+      expect(set.flush?).to be true
+    end
+  end
+
+  describe '#straight?' do
+    let(:cards) { "2H 3D 4C 5S 6H" }
+    it "returns true if card set is a straight" do
+      expect(set.straight?).to be true
+    end
+  end
+
+  describe '#full_house?' do
+    let(:cards) { "2H 2D 3H 3S 3C" }
+    it "returns true if card set is a full house" do
+      expect(set.full_house?).to be true
+    end
+  end
+
+  describe '#two_pair?' do
+    let(:cards) { "2H 2D 3H 3D 5S" }
+    it "returns true if card set has two pairs" do
+      expect(set.two_pair?).to be true
+    end
+  end
+
+  describe '#one_pair?' do
+    let(:cards) { "2H 2D 5S 8C 9D" }
+    it "returns true if card set has one pair" do
+      expect(set.one_pair?).to be true
+    end
+  end
 end
