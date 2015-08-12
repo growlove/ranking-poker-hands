@@ -1,13 +1,17 @@
 require "spec_helper"
 
 describe Card do
-  subject(:card) { Card.from_string("2H") }
+  subject(:card) { Card.from("2H") }
 
-  it "has a rank" do
-    expect(card.rank).to eq "2"
+  describe '#rank' do
+    it "returns its rank" do
+      expect(card.rank).to eq "2"
+    end
   end
 
-  it "has a suit" do
-    expect(card.suit).to eq "H"
+  describe '#suit' do
+    it "returns its suit" do
+      expect(card.suit).to eq "H"
+    end
   end
 end

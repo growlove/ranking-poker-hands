@@ -6,7 +6,7 @@ class Card
     @suit = suit
   end
 
-  def self.from_string(card_string)
+  def self.from(card_string)
     re = /([2-9]|[TJQKA])([HDCS])/
     match = card_string.match(re)
 
