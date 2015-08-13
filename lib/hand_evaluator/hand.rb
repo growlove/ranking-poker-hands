@@ -7,6 +7,10 @@ class Hand
     @set = card_set
   end
 
+  def to_a
+    set.to_a
+  end
+
   def <=>(other)
     this = $HANDS_LIST.index(self.class)
     that = $HANDS_LIST.index(other.class)
@@ -22,6 +26,9 @@ class Hand
     end
   end
 
-  def equality
+  protected
+
+  def equality(other)
+    0
   end
 end

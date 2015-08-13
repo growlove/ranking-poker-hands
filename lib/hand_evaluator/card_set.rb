@@ -1,12 +1,18 @@
 class CardSet
   include Enumerable
 
-  RANKS = %w(2 3 4 5 6 7 8 9 T J Q K A)
-
   attr_reader :cards
 
   def initialize(cards)
     @cards = cards
+  end
+
+  def to_a
+    map { |card| card.to_s }.to_a
+  end
+
+  def highest_rank
+    sort_by { |card| $RANKS.index(card.rank) }.last.rank
   end
 
   def each(&block)
@@ -14,7 +20,7 @@ class CardSet
   end
 
   def ranks
-    map(&:rank).uniq
+    map(&:rank).sort_by { |rank| $RANKS.index(rank) }
   end
 
   def suits
@@ -42,11 +48,11 @@ class CardSet
   end
 
   def straight?
-    start = first.rank
-    start_index = RANKS.index(start)
+    start = ranks.first
+    start_index = $RANKS.index(start)
     end_index = start_index + 4
 
-    ranks == RANKS[start_index..end_index]
+    ranks == $RANKS[start_index..end_index]
   end
 
   def full_house?

@@ -12,8 +12,9 @@ describe CardSet do
   end
 
   describe '#ranks' do
-    it "lists unique card ranks" do
-      expect(set.ranks).to eq ["2", "3"]
+    let(:cards) { %w(2H 5H 3D 9S 7C) }
+    it "sorts and lists the ranks from lowest to highest" do
+      expect(set.ranks).to eq %w(2 3 5 7 9)
     end
   end
 
